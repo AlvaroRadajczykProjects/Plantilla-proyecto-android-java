@@ -3,6 +3,9 @@ package com.example.plantillaproyectoandroidjava.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +28,9 @@ public class FragmentNext extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private NavHostFragment navHostFragment;
+    private NavController navController;
 
     public FragmentNext() {
         // Required empty public constructor
@@ -60,7 +66,18 @@ public class FragmentNext extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View fragmentView = inflater.inflate(R.layout.fragment_next, container, false);
+
+        navHostFragment = (NavHostFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        navController = navHostFragment.getNavController();
+
+        fragmentView.findViewById(R.id.button2).setOnClickListener(view -> {
+            //NavDirections action = SpecifyAmountFragmentDirections.actionSpecifyAmountFragmentToConfirmationFragment();
+            Navigation.findNavController(view).navigate(R.id.action_fragmentNext_to_fragmentMenu);
+        });
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_next, container, false);
+        return fragmentView;
     }
 }
