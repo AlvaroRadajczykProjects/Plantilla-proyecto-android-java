@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -73,8 +74,8 @@ public class FragmentNext extends Fragment {
         navController = navHostFragment.getNavController();
 
         fragmentView.findViewById(R.id.button2).setOnClickListener(view -> {
-            //NavDirections action = SpecifyAmountFragmentDirections.actionSpecifyAmountFragmentToConfirmationFragment();
-            Navigation.findNavController(view).navigate(R.id.action_fragmentNext_to_fragmentMenu);
+            NavDirections action = FragmentNextDirections.actionFragmentNextToFragmentMenu();
+            Navigation.findNavController(view).navigate(action);
         });
 
         // Inflate the layout for this fragment

@@ -76,8 +76,8 @@ public class FragmentMenu extends Fragment {
         navController = navHostFragment.getNavController();
 
         fragmentView.findViewById(R.id.button).setOnClickListener(view -> {
-            //NavDirections action = SpecifyAmountFragmentDirections.actionSpecifyAmountFragmentToConfirmationFragment();
-            Navigation.findNavController(view).navigate(R.id.action_fragmentMenu_to_fragmentNext);
+            NavDirections action = FragmentMenuDirections.actionFragmentMenuToFragmentNext();
+            Navigation.findNavController(view).navigate(action);
         });
 
         // Inflate the layout for this fragment
