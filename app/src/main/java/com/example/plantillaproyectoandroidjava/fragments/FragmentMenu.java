@@ -18,7 +18,7 @@ import com.example.plantillaproyectoandroidjava.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragmentMenu#newInstance} factory method to
+ * Use the {@link FragmentMenu} factory method to
  * create an instance of this fragment.
  */
 public class FragmentMenu extends Fragment {

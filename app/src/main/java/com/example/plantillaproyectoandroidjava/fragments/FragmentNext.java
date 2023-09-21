@@ -16,7 +16,7 @@ import com.example.plantillaproyectoandroidjava.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragmentNext#newInstance} factory method to
+ * Use the {@link FragmentNext} factory method to
  * create an instance of this fragment.
  */
 public class FragmentNext extends Fragment {
