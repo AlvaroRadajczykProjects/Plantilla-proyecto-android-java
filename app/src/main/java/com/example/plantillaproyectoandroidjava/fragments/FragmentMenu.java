@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.plantillaproyectoandroidjava.R;
+import com.example.plantillaproyectoandroidjava.databinding.FragmentMenuBinding;
+import com.example.plantillaproyectoandroidjava.databinding.FragmentNextBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +24,9 @@ import com.example.plantillaproyectoandroidjava.R;
  * create an instance of this fragment.
  */
 public class FragmentMenu extends Fragment {
+
+    private FragmentMenuBinding binding;
+
     private NavHostFragment navHostFragment;
     private NavController navController;
 
@@ -33,12 +38,13 @@ public class FragmentMenu extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View fragmentView = inflater.inflate(R.layout.fragment_menu, container, false);
+        binding = FragmentMenuBinding.inflate(inflater);
+        View fragmentView = binding.getRoot();
 
         navHostFragment = (NavHostFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         navController = navHostFragment.getNavController();
 
-        fragmentView.findViewById(R.id.button).setOnClickListener(view -> {
+        binding.button.setOnClickListener(view -> {
             NavDirections action = FragmentMenuDirections.actionFragmentMenuToFragmentNext();
             Navigation.findNavController(view).navigate(action);
         });

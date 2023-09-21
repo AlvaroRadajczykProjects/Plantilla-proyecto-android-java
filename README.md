@@ -1,3 +1,3 @@
 # Plantilla-proyecto-android-java
 
-Implemented from main(empty project). Allows basic app navigation 
+Implemented from basic-app-navigation(final). Allows basic app navigation and fragments use view binding

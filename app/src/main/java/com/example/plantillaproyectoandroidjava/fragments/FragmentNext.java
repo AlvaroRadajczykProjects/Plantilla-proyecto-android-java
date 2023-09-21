@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.plantillaproyectoandroidjava.R;
+import com.example.plantillaproyectoandroidjava.databinding.FragmentNextBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +21,8 @@ import com.example.plantillaproyectoandroidjava.R;
  * create an instance of this fragment.
  */
 public class FragmentNext extends Fragment {
+
+    private FragmentNextBinding binding;
 
     private NavHostFragment navHostFragment;
     private NavController navController;
@@ -32,12 +35,13 @@ public class FragmentNext extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View fragmentView = inflater.inflate(R.layout.fragment_next, container, false);
+        binding = FragmentNextBinding.inflate(inflater);
+        View fragmentView = binding.getRoot();
 
         navHostFragment = (NavHostFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         navController = navHostFragment.getNavController();
 
-        fragmentView.findViewById(R.id.button2).setOnClickListener(view -> {
+        binding.button.setOnClickListener(view -> {
             NavDirections action = FragmentNextDirections.actionFragmentNextToFragmentMenu();
             Navigation.findNavController(view).navigate(action);
         });
